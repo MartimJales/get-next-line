@@ -6,11 +6,40 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:45 by mjales            #+#    #+#             */
-/*   Updated: 2021/12/21 12:31:32 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/01 12:23:11 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	if (size != 0)
+	{
+		while (src[i] && i < (size - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
+	while (src[i])
+		i++;
+	return (i);
+}
+
+char	*ft_realloc(char *s, size_t new_size, size_t i)
+{
+	char	*newptr;
+
+	newptr = malloc(new_size);
+	ft_memcpy(newptr, s, i);
+	free(s);
+	return (newptr);
+}
 
 size_t	ft_strlen(const char *s)
 {
