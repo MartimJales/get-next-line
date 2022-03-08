@@ -1,1 +1,6 @@
 I need to allow realloc if line too long
+
+
+Passar a logica do analise para o s em vez de meter no buffer
+Fazer apenas um malloc
+Meter o buffer estatico como array em vez de malloc
