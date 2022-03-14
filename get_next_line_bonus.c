@@ -6,13 +6,13 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:48 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/08 18:53:41 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:19:40 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_free(char *buffer, char *buf)
+char	*ft_junta(char *buffer, char *buf)
 {
 	char	*temp;
 
@@ -29,10 +29,7 @@ char	*analise(int fd, char *resto)
 	char	*analise;
 
 	if (!resto)
-	{
-		resto = malloc(1);
-		*resto = 0;
-	}
+		resto = ft_cria();
 	analise = malloc(BUFFER_SIZE + 1);
 	control = 1;
 	while (control > 0)
@@ -41,7 +38,7 @@ char	*analise(int fd, char *resto)
 		if (control == -1 || !control)
 			break ;
 		analise[control] = 0;
-		resto = ft_free(resto, analise);
+		resto = ft_junta(resto, analise);
 		if (ft_strchr(analise, '\n'))
 			break ;
 	}
@@ -103,9 +100,3 @@ char	*get_next_line(int fd)
 	}
 	return (s);
 }
-
-
-// int main()
-// {
-// 	get_next_line(0);
-// }

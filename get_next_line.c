@@ -6,7 +6,7 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:48 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/05 19:16:33 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:15:42 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ char	*analise(int fd, char *resto)
 	char	*analise;
 
 	if (!resto)
-	{
-		resto = malloc(1);
-		*resto = 0;
-	}
+		resto = ft_cria();
 	analise = malloc(BUFFER_SIZE + 1);
 	control = 1;
 	while (control > 0)

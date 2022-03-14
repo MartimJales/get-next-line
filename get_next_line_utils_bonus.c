@@ -6,7 +6,7 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:45 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/08 18:39:42 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:19:53 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	size2;
 	char	*new;
 
-	if (/*!s1 ||*/ !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	size1 = ft_strlen((char *)s1);
 	size2 = ft_strlen((char *)s2);
@@ -85,13 +85,11 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-// Guardar esta para ver mais tarde //
-// char	*ft_realloc(char *s, size_t new_size, size_t i)
-// {
-// 	char	*newptr;
+char	*ft_cria(void)
+{
+	char	*s;
 
-// 	newptr = malloc(new_size);
-// 	ft_memcpy(newptr, s, i);
-// 	free(s);
-// 	return (newptr);
-// }
+	s = malloc(1);
+	*s = 0;
+	return (s);
+}

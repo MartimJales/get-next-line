@@ -6,7 +6,7 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 11:19:00 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/05 18:29:30 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/14 18:18:02 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ char	*get_next_line(int fd);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
-char	*ft_free(char *buffer, char *buf);
+char	*ft_junta(char *buffer, char *buf);
 size_t	ft_strlen(const char *str);
+char	*ft_cria(void);
 
 #endif
