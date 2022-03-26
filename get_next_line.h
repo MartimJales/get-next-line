@@ -6,7 +6,7 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 11:19:00 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/14 18:18:02 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/26 14:12:19 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@
 # include<stdlib.h>
 # include <string.h>
 
-// char	*ft_realloc(char *s, size_t new_size, size_t i);
 char	*get_next_line(int fd);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-char	*ft_junta(char *buffer, char *buf);
-size_t	ft_strlen(const char *str);
-char	*ft_cria(void);
+char	*ft_strjoin(char *s1, char *s2);
+char	ft_strchr(char *s);
+size_t	ft_strlen(char *str);
+void	clean_buffer(char *buffer);
 
 #endif

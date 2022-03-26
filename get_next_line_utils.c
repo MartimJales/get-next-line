@@ -6,90 +6,77 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:45 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/14 18:19:20 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/26 14:11:58 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	clean_buffer(char *buffer)
 {
-	size_t	i;
-	size_t	size1;
-	size_t	size2;
-	char	*new;
+	int		i;
+	int		sobra;
 
-	if (!s1 || !s2)
-		return (NULL);
-	size1 = ft_strlen((char *)s1);
-	size2 = ft_strlen((char *)s2);
-	new = malloc(size1 + size2 + 1);
-	if (!new)
-		return (NULL);
 	i = -1;
-	while (++i < size1)
-		new[i] = s1[i];
-	while (i < size1 + size2)
+	sobra = -1;
+	while (buffer[++i])
 	{
-		new[i] = s2[i - size1];
-		i++;
+		if (buffer[i] == '\n' && sobra == -1)
+			sobra = 0;
+		else if (sobra != -1)
+			buffer[sobra++] = buffer[i];
+		buffer[i] = 0;
 	}
-	new[i] = 0;
-	return (new);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	ft_strchr(char *s)
 {
 	int	i;
-	int	size;
 
-	size = ft_strlen ((char *)s);
 	i = 0;
-	if (!s)
+	while (s[i] != '\n' && s[i])
+		i++;
+	return (s[i]);
+}
+
+size_t	ft_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (str[i] == '\n')
+			return (i + 1);
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	size_t	i;
+	size_t	j;
+	char	*new;
+
+	new = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!new)
 		return (NULL);
-	while (i <= size)
+	i = 0;
+	while (s1 && s1[i])
 	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)(&s[i]));
+		new[i] = s1[i];
 		i++;
 	}
-	return (NULL);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	if (size != 0)
+	j = 0;
+	while (s2[j])
 	{
-		while (src[i] && i < (size - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
+		new[i++] = s2[j];
+		if (s2[j++] == '\n')
+			break ;
 	}
-	while (src[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_cria(void)
-{
-	char	*s;
-
-	s = malloc(1);
-	*s = 0;
-	return (s);
+	new[i] = 0;
+	if (s1)
+		free(s1);
+	return (new);
 }
