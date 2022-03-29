@@ -6,7 +6,7 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:48 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/26 14:14:48 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/26 18:57:03 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[FOPEN_MAX][BUFFER_SIZE];
+	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
 	char		*s;
 	int			i;
 

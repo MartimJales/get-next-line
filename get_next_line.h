@@ -6,14 +6,17 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 11:19:00 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/26 14:12:19 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/29 19:12:06 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 
 # define GET_NEXT_LINE_H
-# define FD_SIZE 4096
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include<stdio.h>
 # include<fcntl.h>

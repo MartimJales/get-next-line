@@ -6,7 +6,7 @@
 /*   By: mjales <mjales@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 12:27:48 by mjales            #+#    #+#             */
-/*   Updated: 2022/03/26 14:12:02 by mjales           ###   ########.fr       */
+/*   Updated: 2022/03/29 19:37:38 by mjales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
+	static char	buffer[BUFFER_SIZE + 1];
 	char		*s;
 	int			i;
 
@@ -35,4 +35,18 @@ char	*get_next_line(int fd)
 	}
 	clean_buffer(buffer);
 	return (s);
+}
+
+int main()
+{
+	int fd;
+	char *line;
+	int i = 0;
+	fd = open("compile.txt", O_RDONLY);
+	while (i < 10)
+	{
+	line = get_next_line (fd);
+	printf("%s" , line);
+	i++;
+	}
 }
